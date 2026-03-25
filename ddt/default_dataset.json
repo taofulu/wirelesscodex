@@ -1,0 +1,412 @@
+{
+  "cases": [
+    {
+      "case_metadata": {
+        "name": "版本升级-基础流程",
+        "version": "1.0",
+        "author": "DDT",
+        "description": "模拟升级版本并确认可用。"
+      },
+      "objects": [
+        {
+          "object_id": "ran",
+          "object_type": "RAN_CONTROLLER"
+        },
+        {
+          "object_id": "timer",
+          "object_type": "TIMER"
+        }
+      ],
+      "activities": {
+        "setup": [],
+        "process": [
+          {
+            "step_id": "upgrade_version_1",
+            "object_id": "ran",
+            "componentName": "upgrade_version",
+            "data": {
+              "target_version": "RAN_2.1.0",
+              "package": "ran_2.1.0.pkg"
+            }
+          },
+          {
+            "step_id": "delay_1",
+            "object_id": "timer",
+            "componentName": "delay",
+            "data": {
+              "seconds": 5
+            }
+          },
+          {
+            "step_id": "check_attach_1",
+            "object_id": "ran",
+            "componentName": "check_attach",
+            "data": {}
+          }
+        ],
+        "teardown": []
+      }
+    },
+    {
+      "case_metadata": {
+        "name": "常用 MML 批处理",
+        "version": "1.0",
+        "author": "DDT",
+        "description": "下发常见 MML 并验证。"
+      },
+      "objects": [
+        {
+          "object_id": "ran",
+          "object_type": "RAN_CONTROLLER"
+        }
+      ],
+      "activities": {
+        "setup": [],
+        "process": [
+          {
+            "step_id": "add_ue_1",
+            "object_id": "ran",
+            "componentName": "add_ue",
+            "data": {
+              "ue_id": "1"
+            }
+          },
+          {
+            "step_id": "set_power_1",
+            "object_id": "ran",
+            "componentName": "set_power",
+            "data": {
+              "power_dbm": -70
+            }
+          },
+          {
+            "step_id": "check_attach_1",
+            "object_id": "ran",
+            "componentName": "check_attach",
+            "data": {}
+          }
+        ],
+        "teardown": []
+      }
+    },
+    {
+      "case_metadata": {
+        "name": "场景文件播放与停止",
+        "version": "1.0",
+        "author": "DDT",
+        "description": "播放场景文件并停止。"
+      },
+      "objects": [
+        {
+          "object_id": "ran",
+          "object_type": "RAN_CONTROLLER"
+        },
+        {
+          "object_id": "timer",
+          "object_type": "TIMER"
+        }
+      ],
+      "activities": {
+        "setup": [],
+        "process": [
+          {
+            "step_id": "play_scenario_1",
+            "object_id": "ran",
+            "componentName": "play_scenario",
+            "data": {
+              "scenario_file": "urban_drive.scn"
+            }
+          },
+          {
+            "step_id": "delay_1",
+            "object_id": "timer",
+            "componentName": "delay",
+            "data": {
+              "seconds": 3
+            }
+          },
+          {
+            "step_id": "stop_scenario_1",
+            "object_id": "ran",
+            "componentName": "stop_scenario",
+            "data": {}
+          }
+        ],
+        "teardown": []
+      }
+    },
+    {
+      "case_metadata": {
+        "name": "基站跟踪",
+        "version": "1.0",
+        "author": "DDT",
+        "description": "启动跟踪，保持一段时间后停止。"
+      },
+      "objects": [
+        {
+          "object_id": "ran",
+          "object_type": "RAN_CONTROLLER"
+        },
+        {
+          "object_id": "timer",
+          "object_type": "TIMER"
+        }
+      ],
+      "activities": {
+        "setup": [],
+        "process": [
+          {
+            "step_id": "start_tracking_1",
+            "object_id": "ran",
+            "componentName": "start_tracking",
+            "data": {
+              "cell_id": "CELL_001"
+            }
+          },
+          {
+            "step_id": "delay_1",
+            "object_id": "timer",
+            "componentName": "delay",
+            "data": {
+              "seconds": 4
+            }
+          },
+          {
+            "step_id": "stop_tracking_1",
+            "object_id": "ran",
+            "componentName": "stop_tracking",
+            "data": {}
+          }
+        ],
+        "teardown": []
+      }
+    },
+    {
+      "case_metadata": {
+        "name": "网管 GUI 日志记录",
+        "version": "1.0",
+        "author": "DDT",
+        "description": "启动 GUI 日志记录并停止。"
+      },
+      "objects": [
+        {
+          "object_id": "ran",
+          "object_type": "RAN_CONTROLLER"
+        },
+        {
+          "object_id": "timer",
+          "object_type": "TIMER"
+        }
+      ],
+      "activities": {
+        "setup": [],
+        "process": [
+          {
+            "step_id": "start_gui_log_1",
+            "object_id": "ran",
+            "componentName": "start_gui_log",
+            "data": {
+              "log_path": "C:/logs/gui.log"
+            }
+          },
+          {
+            "step_id": "delay_1",
+            "object_id": "timer",
+            "componentName": "delay",
+            "data": {
+              "seconds": 2
+            }
+          },
+          {
+            "step_id": "stop_gui_log_1",
+            "object_id": "ran",
+            "componentName": "stop_gui_log",
+            "data": {}
+          }
+        ],
+        "teardown": []
+      }
+    },
+    {
+      "case_metadata": {
+        "name": "API 接口测试",
+        "version": "1.0",
+        "author": "AutoGenerator",
+        "description": "Generated task.json for API 接口测试"
+      },
+      "objects": [
+        {
+          "object_id": "obj_1",
+          "object_type": "todo"
+        },
+        {
+          "object_id": "obj_2",
+          "object_type": "todo"
+        },
+        {
+          "object_id": "obj_3",
+          "object_type": "todo"
+        }
+      ],
+      "activities": {
+        "setup": [],
+        "process": [
+          {
+            "step_id": "connection_check_1",
+            "object_id": "obj_1",
+            "componentName": "connection_check",
+            "data": {},
+            "description": "Always-on component: connection_check"
+          },
+          {
+            "step_id": "post_request_1",
+            "object_id": "obj_2",
+            "componentName": "post_request",
+            "data": {
+              "url": "/api/users",
+              "json": "JSON Body",
+              "auth": "No Auth"
+            },
+            "description": "Step for 请求方法: POST"
+          }
+        ],
+        "teardown": [
+          {
+            "step_id": "status_code_assertion_1",
+            "object_id": "obj_3",
+            "componentName": "status_code_assertion",
+            "data": {
+              "expected_code": ">=400"
+            },
+            "description": "Step for 接口分析方法: 报错"
+          }
+        ]
+      }
+    },
+    {
+      "case_metadata": {
+        "name": "Sandbox_Task",
+        "version": "1.0",
+        "author": "Sandbox",
+        "description": "Saved from Sandbox"
+      },
+      "objects": [
+        {
+          "object_id": "ran",
+          "object_type": "RAN_CONTROLLER"
+        },
+        {
+          "object_id": "timer",
+          "object_type": "TIMER"
+        }
+      ],
+      "activities": {
+        "setup": [],
+        "process": [
+          {
+            "step_id": "n1",
+            "object_id": "ran",
+            "componentName": "del_ue",
+            "data": {
+              "ue_id": "1"
+            },
+            "depends_on": []
+          },
+          {
+            "step_id": "n2",
+            "object_id": "timer",
+            "componentName": "delay",
+            "data": {
+              "seconds": 2
+            },
+            "depends_on": [
+              "n1"
+            ]
+          },
+          {
+            "step_id": "n3",
+            "object_id": "ran",
+            "componentName": "check_attach",
+            "data": {},
+            "depends_on": [
+              "n2"
+            ]
+          }
+        ],
+        "teardown": []
+      }
+    },
+    {
+      "case_metadata": {
+        "name": "并行重复API测试-ADD_UE",
+        "version": "1.0",
+        "author": "DDT",
+        "description": "并行执行重复 ADD_UE，然后汇合检查"
+      },
+      "objects": [
+        { "object_id": "ran", "object_type": "RAN_CONTROLLER" }
+      ],
+      "activities": {
+        "setup": [],
+        "process": [
+          {
+            "step_id": "add_ue_a",
+            "object_id": "ran",
+            "componentName": "add_ue",
+            "data": { "ue_id": "A" }
+          },
+          {
+            "step_id": "add_ue_b",
+            "object_id": "ran",
+            "componentName": "add_ue",
+            "data": { "ue_id": "B" }
+          },
+          {
+            "step_id": "check_attach_join",
+            "object_id": "ran",
+            "componentName": "check_attach",
+            "data": {},
+            "depends_on": ["add_ue_a", "add_ue_b"]
+          }
+        ],
+        "teardown": []
+      }
+    },
+    {
+      "case_metadata": {
+        "name": "并行重复API测试-SET_POWER",
+        "version": "1.0",
+        "author": "DDT",
+        "description": "并行执行重复 SET_POWER，之后汇合检查"
+      },
+      "objects": [
+        { "object_id": "ran", "object_type": "RAN_CONTROLLER" }
+      ],
+      "activities": {
+        "setup": [],
+        "process": [
+          {
+            "step_id": "set_power_a",
+            "object_id": "ran",
+            "componentName": "set_power",
+            "data": { "power_dbm": -70 }
+          },
+          {
+            "step_id": "set_power_b",
+            "object_id": "ran",
+            "componentName": "set_power",
+            "data": { "power_dbm": -60 }
+          },
+          {
+            "step_id": "check_attach_join",
+            "object_id": "ran",
+            "componentName": "check_attach",
+            "data": {},
+            "depends_on": ["set_power_a", "set_power_b"]
+          }
+        ],
+        "teardown": []
+      }
+    }
+  ]
+}
